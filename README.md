@@ -16,5 +16,8 @@ fájlok: <a _ngcontent-ng-c4236355062="" data-bs-toggle="collapse" data-bs-targe
 
 profilom: <a _ngcontent-ng-c4236355062="" data-bs-toggle="collapse" data-bs-target="#myprofile" aria-expanded="true" aria-controls="collapseExample" class="menu-title-a"> Profilom </a>
 
+kilépés selector: body > app-root > app-home > div > div.row.header > div.col.header-logout > a
+kijelentkezés selector: #cdk-overlay-1 > mdb-modal-container > div > div > app-logoutcomfirm > div.modal-footer > button.btn.btn-primary
+
 
 
