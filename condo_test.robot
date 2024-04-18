@@ -6,7 +6,7 @@ Suite Setup    Open Browser    https://mycondo.hu/login    Chrome    options=add
 *** Variables ***
 ${EMAIL}    maruzseszti@freemail.hu
 ${RECOVERY_EMAIL}    maruzseszti@freemail.hu
-${USER_PASSWORD}    LOCiHqIs
+${USER_PASSWORD}    TYWYUDmH
 ${ADMIN_EMAIL}    eszter.maruzs@gmail.com
 ${ADMIN_PASSWORD}    gi41MXEr
 ${WRONG_EMAIL}    eszter.maruzs
@@ -25,18 +25,18 @@ Elfelejtett jelszó
     Click Element    xpath://button[contains(text(), 'Küldés')]
     Sleep    5s
    
-Bejelentkezés a MyCondo oldalra
+# Bejelentkezés a MyCondo oldalra
     Maximize Browser Window
     Wait Until Page Contains    Bejelentkezés    5s
     Input Text    id:email    maruzseszti@freemail.hu
     Wait Until Element Is Visible    name:password    5s
-    Input Text    name:password    LOCiHqIs
+    Input Text    name:password    TYWYUDmH
     Sleep    3s
     Wait Until Element Is Enabled    xpath://button[contains(text(),'Bejelentkezés')]    5s
     Click Element    xpath://button[contains(text(),'Bejelentkezés')]
     Sleep    5s   
 
-Válassza ki a Híreket
+# Válassza ki a Híreket
     [Documentation]    Kattintson a Hírek menüpontra, majd zárja be.
     Maximize Browser Window
     Wait Until Page Contains Element    css:.menu-title-a[data-bs-toggle='collapse'][data-bs-target='#bulletinBoard']    3s
@@ -72,7 +72,6 @@ Válassza ki a Költségeket
     Sleep    3s  
     Click Element    css:.menu-title-a[data-bs-toggle='collapse'][data-bs-target='#dictate']
 
-
  Válassza ki a Fájlokat
     [Documentation]    Kattintson a Fájlok menüpontra, majd zárja be.
     Maximize Browser Window
@@ -82,7 +81,6 @@ Válassza ki a Költségeket
     Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)    
     Sleep    3s  
     Click Element    css:.menu-title-a[data-bs-toggle='collapse'][data-bs-target='#files']
-
 
 Válassza ki a Profilomat
     [Documentation]    Kattintson a Profilom menüpontra, majd zárja be.
@@ -103,7 +101,6 @@ Válassza ki a Kilépést
     Execute JavaScript    document.querySelector('#cdk-overlay-0 > mdb-modal-container > div > div > app-logoutcomfirm > div.modal-footer > button.btn.btn-primary').click();
     Sleep    5s
    [Teardown]    Close Browser
-
 
 #ADMIN
 Bejelentkezés a MyCondo oldalra, elrontott mail címmel
@@ -216,34 +213,34 @@ Faliújság Teszt
     Execute JavaScript    window.scrollTo(0, 0)
     Sleep    3s 
 
-# Lakók kezelése a MyCondo oldalon
-#     [Documentation]    Lakók megnyitása, hozzáadása és törlése a MyCondo weboldalon.
-    
-#     # Lakók megnyitása
-#     Wait Until Element Is Visible    css:#navbarNav > ul:nth-child(1) > li:nth-child(3) > a    2s
-#     Click Element    css:#navbarNav > ul:nth-child(1) > li:nth-child(3) > a
-#     Sleep    2s
+Lakók kezelése a MyCondo oldalon
+    [Documentation]    Lakók megnyitása, hozzáadása és törlése a MyCondo weboldalon.
+    # Lakók megnyitása
+    Wait Until Element Is Visible    css:#navbarNav > ul:nth-child(1) > li:nth-child(3) > a    2s
+    Click Element    css:#navbarNav > ul:nth-child(1) > li:nth-child(3) > a
+    Sleep    2s
 
-#     # Lakó hozzáadása
-#     Click Element    css:body > app-root > app-users > div > div.row.row-cols-auto.header > div:nth-child(1) > a
-#     Sleep    2s
-#     Input Text    css:#cdk-overlay-0 > mdb-modal-container > div > div > app-adduser > div > div.addsection > div > div > div > form > div:nth-child(1) > div.col-md-8 > input    Mészáros Lőrinc
-#     Input Text    css:#cdk-overlay-0 > mdb-modal-container > div > div > app-adduser > div > div.addsection > div > div > div > form > div:nth-child(2) > div.col-md-8 > input    meszaros@okosabbvagyokmintzuckerberg.hu
-#     Sleep    3s
-#     Wait Until Element Is Visible    xpath=//*[@id="cdk-overlay-0"]/mdb-modal-container    10s
-#     Execute JavaScript    var modal = document.querySelector('#cdk-overlay-0 mdb-modal-container div div app-adduser div div[2] div div'); modal.scrollTop = modal.scrollHeight;
-#     Sleep    1s  # Várakozás a görgetési eseményre és az oldal frissítésére
-#     Wait Until Element Is Visible    xpath=//*[@id="cdk-overlay-0"]/mdb-modal-container/div/div/app-adduser/div/div[2]/div/div/div/form/div[11]/div[2]/a    10s
-#     Click Element    xpath=//*[@id="cdk-overlay-0"]/mdb-modal-container/div/div/app-adduser/div/div[2]/div/div/div/form/div[11]/div[2]/a
-#     Sleep    1s  # Várakozás a mentés műveletre és az esetleges oldal frissítésre
-
-    # # Átlépés a 2. oldalra
-    # Click Element    xpath:/html/body/app-root/app-users/div/div[1]/div[2]/ngb-pagination/ul/li[3]/a
-    # Sleep    5s
-
-    # # Lakó adatainak lenyitása
-    # Click Element    css:body > app-root > app-users > div > div.user-list > div:nth-child(5) > a > div > i
-    # Sleep    2s
+    # Lakó hozzáadása
+    Click Element    xpath=/html/body/app-root/app-users/div/div[1]/div[1]/a
+    Sleep    2s  
+    Input Text    name:name    Szőllősi-Maruzs Eszter
+    Sleep    1s
+    Input Text    name:email    teszt8@kukamail.com
+    Sleep    1s
+    Input Text    name:phone    +36 30 463 30 44
+    Sleep    1s
+    Input Text    name:building    A5
+    Sleep    1s
+    Input Text    name:floor    3
+    Sleep    1s
+    Input Text    name:door    5
+    Sleep    1s
+    Input Text    name:squaremeter    74.5
+    Sleep    1s
+    Click Element    xpath://*[@id="cdk-overlay-0"]/mdb-modal-container/div/div/app-adduser/div/div[2]/div/div/div/form/div[11]/div[2]/a
+    Sleep    3s
+    Click Element    xpath:/html/body/app-root/app-users/div/div[1]/div[2]/ngb-pagination/ul/li[3]/a
+    Sleep    3s
 
     # Lakó törlése
     # Click Element    css:body > app-root > app-users > div > div.user-list > div:nth-child(5) > div.col-lg-4.col-md-4.col-sm-12.user-actions > a.buttons.red
@@ -274,4 +271,36 @@ Faliújság Teszt
     Wait Until Element Is Visible    xpath=/html/body/app-root/app-meters/div/div[2]/div[2]/div[5]/div/a[1]    5s
     Click Element    xpath=/html/body/app-root/app-meters/div/div[2]/div[2]/div[5]/div/a[1]
     Sleep    2s 
+
+# Beállítások fülre kattintás/diktálási időszak
+    Click Element    xpath=//*[@id="navbarNav"]/ul[1]/li[5]/a
+
+# Kezdeti érték beállítása 1-re
+    Wait Until Element Is Visible    css=input#start    5s
+    Input Text    css=input#start    1
+    Sleep    2s 
+
+# Végső érték beállítása 9-re
+    Wait Until Element Is Visible    css=input#end    5s
+    Input Text    css=input#end    9
+    Sleep    2s 
+
+# Adatok mentése
+    Click Element    xpath=/html/body/app-root/app-settings/div/div[1]/div/div[3]/div/a
+    Sleep    2s 
+    
+
+Weboldal Interakciók Kezelése
+    [Documentation]    Fájlok menüpontra kattintás és kilépés a rendszerből.
+    
+    # Fájlok menüpontra kattintás
+    Wait Until Element Is Visible    xpath=//*[@id="navbarNav"]/ul[1]/li[6]/a    10s
+    Click Element    xpath=//*[@id="navbarNav"]/ul[1]/li[6]/a
+    Sleep    2s  
+    
+    # Kilépés gombra kattintás
+    Wait Until Element Is Visible    xpath=//*[@id="navbarNav"]/ul[2]/li[2]/button/i    10s
+    Click Element    xpath=//*[@id="navbarNav"]/ul[2]/li[2]/button/i
+    Sleep    2s  
+    Click Element    xpath=//*[@id="cdk-overlay-0"]/mdb-modal-container/div/div/app-logoutcomfirm/div[3]/button[2]
     [Teardown]    Close Browser
